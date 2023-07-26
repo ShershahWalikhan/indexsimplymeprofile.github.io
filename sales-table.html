@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        
+        label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            width: 150px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        #grand-total {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+    <script>
+        function addItem() {
+            // Get the values entered by the user
+            var itemName = document.getElementById('item-name').value;
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var price = parseFloat(document.getElementById('price').value);
+
+            // Calculate the total for the current item
+            var total = quantity * price;
+
+            // Create a new row for the item details
+            var table = document.getElementById('receipt-table');
+            var newRow = table.insertRow(-1);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            cell1.innerHTML = itemName;
+            cell2.innerHTML = quantity;
+            cell3.innerHTML = price.toFixed(2);
+            cell4.innerHTML = total.toFixed(2);
+
+            // Update the grand total
+            updateGrandTotal();
+            
+            // Clear the input fields
+            document.getElementById('item-name').value = '';
+            document.getElementById('quantity').value = '';
+            document.getElementById('price').value = '';
+        }
+        
+        function updateGrandTotal() {
+            var table = document.getElementById('receipt-table');
+            var rowCount = table.rows.length;
+            var grandTotal = 0;
+
+            // Iterate through each row and sum up the totals
+            for (var i = 1; i < rowCount; i++) {
+                grandTotal += parseFloat(table.rows[i].cells[3].innerHTML);
+            }
+
+            // Update the grand total display
+            var grandTotalElement = document.getElementById('grand-total');
+            grandTotalElement.innerHTML = "Grand Total: RS" + grandTotal.toFixed(2);
+        }
+        
+        function printReceipt() {
+            window.print();
+        }
+    </script>
+</head>
+<body>
+    <h1>Receipt</h1>
+    <label for="item-name">Item Name:</label>
+    <input type="text" id="item-name">
+    <br>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity">
+    <br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" step="0.01">
+    <br>
+    <button onclick="addItem()">Add Item</button>
+    <br>
+    <table id="receipt-table">
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </table>
+    <div id="grand-total"></div>
+    <br>
+    <button onclick="printReceipt()">Print Receipt</button>
+</body>
+</html>

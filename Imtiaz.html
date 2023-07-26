@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Imtiaz Supermarket</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the supermarket theme */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .header {
+      background-color: #343a40;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .hero-image {
+      background-image: url('supermarket.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #e6810f;
+      font-size: 32px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .list-group-item:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Remove border and add padding to thumbnails */
+.thumbnail {
+  padding: 0 0 15px 0;
+  border: none;
+  border-radius: 0;
+}
+
+.thumbnail p {
+  margin-top: 15px;
+  color: #555;
+}
+
+/* Black buttons with extra padding and without rounded borders */
+.btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #f1f1f1;
+  border-radius: 0;
+  transition: .2s;
+}
+
+/* On hover, the color of .btn will transition to white with black text */
+.btn:hover, .btn:focus {
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #000;
+}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Imtiaz supermarket</h1>
+    </div>
+  </header>
+
+  <section class="hero-image">
+    <div class="container">
+      <img src="imtiaz.PNG" alt="">
+      <h2>Welcome to our Supermarket!</h2>
+      <p>Discover a wide range of products at affordable prices.</p>
+    </div>
+  </section>
+
+  <section class="other-city">
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="imtiazpeshawar.PNG" alt="Peshawar" height="100">
+          <p><strong>Peshawar</strong></p>
+          <p>best one</p>
+          <button class="btn">vist here</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="imtiazkarachi.PNG" alt="karachi" height="100">
+          <p><strong>karachi</strong></p>
+          <p>big one</p>
+          <button class="btn">vist here</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="imtiazlahore.PNG" alt="lahore" height="100">
+          <p><strong>lahore</strong></p>
+          <p>fastest one</p>
+          <button class="btn">vist here</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="container">
+    <h2>Featured Products of fast food</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="zinger.PNG" alt="" height="100">
+          <h4>zinger burger</h4>
+          <p>only on 250RS</p>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="pizza.PNG" alt="" height="100">
+          <h4>Pizza</h4>
+          <p>only on 600RS</p>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="chiken grill sandwich.PNG" alt="" height="100">
+          <h4>chiken grill sandwich</h4>
+          <p>only on 400RS</p>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
